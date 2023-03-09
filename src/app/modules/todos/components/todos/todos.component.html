@@ -1,0 +1,11 @@
+<main class="main">
+  <div *ngFor="let todo of todos" class="todos-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ todo.task }}</mat-card-title>
+        <mat-card-subtitle>{{ todo.priority }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ todo.addedAt | date }}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+</main>
