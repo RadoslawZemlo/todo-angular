@@ -4,9 +4,10 @@ import { TodosRoutingModule } from './todos-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { TodosComponent } from './components/todos/todos.component';
+import { TodoComponent } from './components/todo/todo.component';
 
 @NgModule({
-  declarations: [TodosComponent],
+  declarations: [TodosComponent, TodoComponent],
   imports: [CommonModule, TodosRoutingModule, SharedModule],
 })
 export class TodosModule {}

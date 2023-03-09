@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ todo.task }}</mat-card-title>
+    <mat-card-subtitle>{{ todo.priority }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ todo.addedAt | date }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-actions>
+    <div class="completed">
+      <button mat-icon-button>
+        <ng-container *ngIf="todo.completed; else uncompleted">
+          <mat-icon *ngIf="todo.completed" color="accent">done</mat-icon>
+        </ng-container>
+
+        <ng-template #uncompleted>
+          <mat-icon *ngIf="!todo.completed" color="warn">close</mat-icon>
+        </ng-template>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,28 @@
+.mat-card {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.6rem 0;
+
+  &-subtitle {
+    margin-bottom: 0.3rem;
+  }
+
+  &-header-text {
+    margin: 0;
+  }
+
+  &-actions {
+    gap: 1em;
+    padding: 1em;
+  }
+}
+
+.mat-icon {
+  cursor: pointer;
+}
+
+.completed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
