@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { TodosService } from '@app/core/services/todos/todos.service';
 import { Todo } from '@interfaces/todo.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-todos',
@@ -7,20 +9,7 @@ import { Todo } from '@interfaces/todo.interface';
   styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent {
-  todos: Todo[] = [
-    {
-      id: 1,
-      task: 'Todo One',
-      priority: 2,
-      addedAt: new Date('2022-12-15T18:22:51.331Z'),
-      completed: false,
-    },
-    {
-      id: 2,
-      task: 'Todo Two',
-      priority: 3,
-      addedAt: new Date('2022-12-15T18:28:51.331Z'),
-      completed: false,
-    },
-  ];
+  todos: Observable<Todo[]> = this.todosService.getTodos();
+
+  constructor(private readonly todosService: TodosService) {}
 }

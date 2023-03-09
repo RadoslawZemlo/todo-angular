@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('@todos/todos.module').then((m) => m.TodosModule),
   },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
