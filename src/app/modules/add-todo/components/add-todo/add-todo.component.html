@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-title>Add Todo</mat-card-title>
+  <mat-card-subtitle>Enter new tasks and it's pririty</mat-card-subtitle>
+
+  <mat-card-content>
+    <form [formGroup]="todoForm">
+      <mat-form-field>
+        <mat-label for="task">Task</mat-label>
+        <input
+          matInput
+          placeholder="Enter new task..."
+          formControlName="task"
+          name="task"
+          id="task"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Priority</mat-label>
+        <mat-select formControlName="priority" name="priority">
+          <mat-option [value]="1">High</mat-option>
+          <mat-option [value]="2">Medium</mat-option>
+          <mat-option [value]="3">Low</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        [disabled]="todoForm.invalid"
+        type="submit"
+        color="accent"
+      >
+        <mat-icon>add</mat-icon>
+        Add Todo
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

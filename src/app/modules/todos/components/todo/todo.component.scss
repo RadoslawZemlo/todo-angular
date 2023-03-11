@@ -1,4 +1,6 @@
 .mat-card {
+  box-shadow: 0 0 3rem #000;
+  color: #ffffffb3;
   display: flex;
   justify-content: space-between;
   margin: 0.6rem 0;
@@ -7,22 +9,18 @@
     margin-bottom: 0.3rem;
   }
 
-  &-header-text {
-    margin: 0;
-  }
-
   &-actions {
     gap: 1em;
     padding: 1em;
   }
-}
 
-.mat-icon {
-  cursor: pointer;
-}
+  .mat-icon {
+    cursor: pointer;
+  }
 
-.completed {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .completed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
