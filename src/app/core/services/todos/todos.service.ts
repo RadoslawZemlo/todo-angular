@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Todo } from '@interfaces/todo.interface';
-import { BehaviorSubject, Observable, take } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +21,22 @@ export class TodosService {
       .get<Todo[]>(this.todosUrl)
       .pipe(take(1))
       .subscribe((todos) => this.sourceTodos$.next(todos));
+  }
+
+  addTodo(task: string, priority: number): void {
+    const newTodo: Todo = {
+      task,
+      priority,
+      addedAt: new Date(),
+      completed: false,
+    };
+
+    const request$ = this.http.post<Todo>(this.todosUrl, newTodo);
+
+    combineLatest([this.todos$, request$])
+      .pipe(take(1))
+      .subscribe(([todos, todo]) => {
+        this.sourceTodos$.next([...todos, todo]);
+      });
   }
 }

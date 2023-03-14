@@ -3,7 +3,7 @@
   <mat-card-subtitle>Enter new tasks and it's pririty</mat-card-subtitle>
 
   <mat-card-content>
-    <form [formGroup]="todoForm">
+    <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
       <mat-form-field>
         <mat-label for="task">Task</mat-label>
         <input
