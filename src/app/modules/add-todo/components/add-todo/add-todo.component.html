@@ -7,17 +7,17 @@
       <mat-form-field>
         <mat-label for="task">Task</mat-label>
         <input
-          matInput
-          placeholder="Enter new task..."
           formControlName="task"
-          name="task"
+          matInput
           id="task"
+          name="task"
+          placeholder="Enter new task..."
         />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label for="priority">Priority</mat-label>
-        <mat-select formControlName="priority" name="priority" id="priority">
+        <mat-select formControlName="priority" id="priority" name="priority">
           <mat-option [value]="1">High</mat-option>
           <mat-option [value]="2">Medium</mat-option>
           <mat-option [value]="3">Low</mat-option>
@@ -25,10 +25,10 @@
       </mat-form-field>
 
       <button
-        mat-raised-button
         [disabled]="todoForm.invalid"
-        type="submit"
+        mat-raised-button
         color="accent"
+        type="submit"
       >
         <mat-icon>add</mat-icon>
         Add Todo

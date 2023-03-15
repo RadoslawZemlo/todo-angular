@@ -12,7 +12,7 @@
   </div>
 
   <mat-card-actions class="actions">
-    <button mat-icon-button (click)="toggleComplete(todo)" class="actions__btn">
+    <button (click)="toggleComplete(todo)" mat-icon-button class="actions__btn">
       <ng-container *ngIf="todo.completed; else uncompleted">
         <mat-icon *ngIf="todo.completed" color="accent">done</mat-icon>
       </ng-container>
@@ -20,6 +20,10 @@
       <ng-template #uncompleted>
         <mat-icon *ngIf="!todo.completed" color="warn">close</mat-icon>
       </ng-template>
+    </button>
+
+    <button (click)="editTodo(todo)" mat-icon-button class="actions__btn">
+      <mat-icon color="accent">edit</mat-icon>
     </button>
   </mat-card-actions>
 </mat-card>

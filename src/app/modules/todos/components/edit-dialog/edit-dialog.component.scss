@@ -1,0 +1,21 @@
+.dialog {
+  &__content {
+    margin-bottom: 1.5rem;
+    overflow: unset;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  .completed {
+    align-items: center;
+    display: flex;
+    gap: 0.9rem;
+  }
+}
