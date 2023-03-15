@@ -4,7 +4,7 @@
       {{ todo.task }}
     </mat-card-title>
     <mat-card-subtitle class="todo__priority">
-      {{ todo.priority }}
+      {{ todo.priority | convertPriority }}
     </mat-card-subtitle>
     <mat-card-subtitle class="todo__date">
       {{ todo.addedAt | date }}
