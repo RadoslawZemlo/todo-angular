@@ -4,23 +4,33 @@
   display: flex;
   justify-content: space-between;
   margin: 0.6rem 0;
+}
 
-  &-subtitle {
-    margin-bottom: 0.3rem;
+.todo {
+  &__task.mat-card-title {
+    margin: 0;
   }
 
-  &-actions {
-    gap: 1em;
-    padding: 1em;
+  &__priority.mat-card-subtitle {
+    margin: 0.5rem 0 0 0;
   }
 
-  .mat-icon {
-    cursor: pointer;
+  &__date.mat-card-subtitle {
+    margin: 0;
   }
+}
 
-  .completed {
-    display: flex;
+.actions {
+  &.mat-card-actions {
     align-items: center;
-    justify-content: center;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__btn.mat-icon-button {
+    height: auto;
+    line-height: unset;
+    width: fit-content;
   }
 }
