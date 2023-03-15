@@ -39,4 +39,24 @@ export class TodosService {
         this.sourceTodos$.next([...todos, todo]);
       });
   }
+
+  replaceTodo(todos: Todo[], todo: Todo, editedTodo: Todo) {
+    const todoIndex = todos.indexOf(todo);
+
+    todos.splice(todoIndex, 1, editedTodo);
+  }
+
+  updateTodo(todo: Todo, edited: Todo): void {
+    const todoUrl = `${this.todosUrl}/${todo.id}`;
+    const editedTodo = { ...todo, ...edited };
+    const request$ = this.http.put<Todo>(todoUrl, editedTodo);
+
+    combineLatest([this.todos$, request$])
+      .pipe(take(1))
+      .subscribe(([todos, editedTodo]) => {
+        this.replaceTodo(todos, todo, editedTodo);
+
+        this.sourceTodos$.next([...todos]);
+      });
+  }
 }

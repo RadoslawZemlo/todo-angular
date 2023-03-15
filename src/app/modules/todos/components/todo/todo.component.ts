@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Todo } from '@app/core/interfaces/todo.interface';
+import { TodosService } from '@app/core/services/todos/todos.service';
 
 @Component({
   selector: 'app-todo',
@@ -8,4 +9,12 @@ import { Todo } from '@app/core/interfaces/todo.interface';
 })
 export class TodoComponent {
   @Input() todo: Todo;
+
+  constructor(private readonly todosService: TodosService) {}
+
+  toggleComplete(todo: Todo): void {
+    const toggledTodo = { ...todo, completed: !todo.completed };
+
+    this.todosService.updateTodo(todo, toggledTodo);
+  }
 }
