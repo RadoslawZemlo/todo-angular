@@ -40,7 +40,7 @@ export class TodosService {
       });
   }
 
-  replaceTodo(todos: Todo[], todo: Todo, editedTodo: Todo) {
+  replaceTodo(todos: Todo[], todo: Todo, editedTodo: Todo): void {
     const todoIndex = todos.indexOf(todo);
 
     todos.splice(todoIndex, 1, editedTodo);
@@ -57,6 +57,17 @@ export class TodosService {
         this.replaceTodo(todos, todo, editedTodo);
 
         this.sourceTodos$.next([...todos]);
+      });
+  }
+
+  deleteTodo(todo: Todo): void {
+    const todoUrl = `${this.todosUrl}/${todo.id}`;
+    const request$ = this.http.delete<Todo>(todoUrl);
+
+    combineLatest([this.todos$, request$])
+      .pipe(take(1))
+      .subscribe(([todos, _]) => {
+        this.sourceTodos$.next(todos.filter((t) => t.id !== todo.id));
       });
   }
 }

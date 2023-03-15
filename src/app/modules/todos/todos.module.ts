@@ -7,9 +7,10 @@ import { TodosComponent } from './components/todos/todos.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { AddTodoModule } from '../add-todo/add-todo.module';
 import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
+import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
 
 @NgModule({
-  declarations: [TodosComponent, TodoComponent, EditDialogComponent],
+  declarations: [TodosComponent, TodoComponent, EditDialogComponent, DeleteDialogComponent],
   imports: [CommonModule, TodosRoutingModule, AddTodoModule, SharedModule],
 })
 export class TodosModule {}

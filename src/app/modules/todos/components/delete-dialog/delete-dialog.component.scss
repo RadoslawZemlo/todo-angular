@@ -1,0 +1,19 @@
+.dialog {
+  &__content {
+    margin-bottom: 0.9rem;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+
+    .delete-btn.mat-raised-button {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
