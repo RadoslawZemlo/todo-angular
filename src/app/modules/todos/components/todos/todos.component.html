@@ -1,7 +1,25 @@
 <app-add-todo></app-add-todo>
 
-<main class="main">
-  <div *ngFor="let todo of todos$ | async" class="todos-container">
-    <app-todo [todo]="todo"></app-todo>
+<ng-container *ngIf="todos$ | async as todos">
+  <div *ngIf="todos.length" class="todos-container">
+    <div class="toolbar">
+      <form [formGroup]="toolbarForm">
+        <mat-form-field>
+          <mat-label for="filter">Filter Todos</mat-label>
+
+          <mat-select formControlName="filter" id="filter" name="filter">
+            <mat-option value="all">All</mat-option>
+            <mat-option value="uncompleted">Uncompleted</mat-option>
+            <mat-option value="completed">Completed</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+
+    <app-todo
+      *ngFor="let todo of todos | filter : toolbarForm.value.filter"
+      [todo]="todo"
+    >
+    </app-todo>
   </div>
-</main>
+</ng-container>
