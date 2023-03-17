@@ -3,8 +3,17 @@
 <ng-container *ngIf="todos$ | async as todos">
   <div *ngIf="todos.length" class="todos-container">
     <div class="toolbar">
-      <form [formGroup]="toolbarForm">
-        <mat-form-field>
+      <form [formGroup]="toolbarForm" class="toolbar-form">
+        <mat-form-field appearance="outline">
+          <mat-label for="sort">Sort By</mat-label>
+
+          <mat-select formControlName="sortBy" id="sort" name="sort">
+            <mat-option value="date">Date</mat-option>
+            <mat-option value="priority">Priority</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
           <mat-label for="filter">Filter Todos</mat-label>
 
           <mat-select formControlName="filter" id="filter" name="filter">
@@ -17,7 +26,11 @@
     </div>
 
     <app-todo
-      *ngFor="let todo of todos | filter : toolbarForm.value.filter"
+      *ngFor="
+        let todo of todos
+          | filter : toolbarForm.value.filter
+          | sort : toolbarForm.value.sortBy
+      "
       [todo]="todo"
     >
     </app-todo>

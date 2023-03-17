@@ -23,6 +23,7 @@ export class TodosComponent implements OnInit {
 
     this.toolbarForm = this.formBuilder.group({
       filter: 'all',
+      sortBy: 'date',
     });
   }
 }

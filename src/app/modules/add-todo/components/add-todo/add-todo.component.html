@@ -4,8 +4,9 @@
 
   <mat-card-content>
     <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
-      <mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label for="task">Task</mat-label>
+
         <input
           formControlName="task"
           matInput
@@ -15,8 +16,9 @@
         />
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label for="priority">Priority</mat-label>
+
         <mat-select formControlName="priority" id="priority" name="priority">
           <mat-option [value]="1">High</mat-option>
           <mat-option [value]="2">Medium</mat-option>

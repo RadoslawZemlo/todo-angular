@@ -6,3 +6,16 @@
   padding: 2em;
   width: 90vw;
 }
+
+.toolbar-form {
+  display: flex;
+  justify-content: flex-end;
+
+  .mat-form-field {
+    width: 40%;
+
+    &:last-child {
+      margin-left: 0.6rem;
+    }
+  }
+}
