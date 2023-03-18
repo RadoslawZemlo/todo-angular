@@ -3,7 +3,18 @@
 <ng-container *ngIf="todos$ | async as todos">
   <div *ngIf="todos.length" class="todos-container">
     <div class="toolbar">
-      <form [formGroup]="toolbarForm" class="toolbar-form">
+      <div class="toolbar__toggle">
+        <mat-checkbox
+          [checked]="(isAllCompleted$ | async)!"
+          (change)="toggleAll($event)"
+          id="toggle"
+          name="toggle"
+        >
+          Toggle Completed All
+        </mat-checkbox>
+      </div>
+
+      <form [formGroup]="toolbarForm" class="toolbar__form">
         <mat-form-field appearance="outline">
           <mat-label for="sort">Sort By</mat-label>
 
@@ -24,6 +35,8 @@
         </mat-form-field>
       </form>
     </div>
+
+    {{ toolbarForm.value.isAllCompleted }}
 
     <app-todo
       *ngFor="

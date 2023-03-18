@@ -7,15 +7,24 @@
   width: 90vw;
 }
 
-.toolbar-form {
-  display: flex;
-  justify-content: flex-end;
+.toolbar {
+  &__toggle {
+    color: #ffffffb3;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.6rem;
+  }
 
-  .mat-form-field {
-    width: 40%;
+  &__form {
+    display: flex;
+    justify-content: flex-end;
 
-    &:last-child {
-      margin-left: 0.6rem;
+    .mat-form-field {
+      width: 40%;
+
+      &:last-child {
+        margin-left: 0.6rem;
+      }
     }
   }
 }

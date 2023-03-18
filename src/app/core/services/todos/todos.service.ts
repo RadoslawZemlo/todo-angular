@@ -60,6 +60,18 @@ export class TodosService {
       });
   }
 
+  toggleAllTodos(isChecked: boolean): void {
+    this.todos$.pipe(take(1)).subscribe((todos) => {
+      todos.map((todo) => {
+        const toggledTodo = { ...todo, completed: isChecked };
+
+        this.updateTodo(todo, toggledTodo);
+
+        return toggledTodo;
+      });
+    });
+  }
+
   deleteTodo(todo: Todo): void {
     const todoUrl = `${this.todosUrl}/${todo.id}`;
     const request$ = this.http.delete<Todo>(todoUrl);
