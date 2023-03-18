@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-title>
+    <h2>Welcome in Todo App</h2>
+  </mat-card-title>
+
+  <mat-card-content>
+    <ng-container *ngIf="todos$ | async as todos">
+      <p>
+        You have <span>{{ todos.length }}</span> todos
+      </p>
+      <p>
+        including
+        <span
+          >{{ todos | filter : "uncompleted" | counter }} ({{
+            todos | filter : "uncompleted" | counter
+          }})</span
+        >
+        uncompleted
+      </p>
+      <p>
+        and
+        <span>
+          {{ todos | filter : "completed" | counter }}
+          ({{ todos | filter : "completed" | counter }})
+        </span>
+        completed
+      </p>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

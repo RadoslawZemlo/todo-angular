@@ -1,3 +1,17 @@
 <mat-toolbar color="primary">
   <h1>Todo App</h1>
+
+  <div class="nav__buttons">
+    <a routerLink="" [appHover]="'scale(0.9)'" color="accent" mat-flat-button>
+      Dashboard
+    </a>
+    <a
+      routerLink="/todos"
+      [appHover]="'scale(0.9)'"
+      color="accent"
+      mat-flat-button
+    >
+      Todos
+    </a>
+  </div>
 </mat-toolbar>
