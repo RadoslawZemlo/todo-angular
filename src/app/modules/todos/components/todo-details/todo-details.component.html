@@ -1,0 +1,31 @@
+<ng-container *ngIf="todo$ | async as todo">
+  <mat-card>
+    <mat-card-title>{{ todo.task | uppercase }}</mat-card-title>
+
+    <mat-card-content>
+      <p>
+        Completed:
+        <span>
+          {{
+            todo.completed
+              ? ("completed" | uppercase)
+              : ("uncompleted" | uppercase)
+          }}
+        </span>
+      </p>
+      <p>
+        Added At: <span>{{ todo.addedAt | date | uppercase }}</span>
+      </p>
+      <p>
+        Priority:
+        <span>{{ todo.priority | convertPriority | uppercase }}</span>
+      </p>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <a mat-raised-button color="warn" routerLink="/todos">
+        Back To Todos List
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>

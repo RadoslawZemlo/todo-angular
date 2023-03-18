@@ -1,0 +1,16 @@
+.mat-card {
+  box-shadow: 0 0 3rem #000;
+  color: #ffffffb3;
+  margin: 0.9rem auto;
+  width: 90vw;
+
+  &-title {
+    margin-bottom: 0.9rem;
+  }
+
+  &-content {
+    p {
+      margin: 0;
+    }
+  }
+}

@@ -23,6 +23,12 @@ export class TodosService {
       .subscribe((todos) => this.sourceTodos$.next(todos));
   }
 
+  getTodo(id: number): Observable<Todo> {
+    const todoUrl = `${this.todosUrl}/${id}`;
+
+    return this.http.get<Todo>(todoUrl);
+  }
+
   addTodo(task: string, priority: number): void {
     const newTodo: Todo = {
       task,

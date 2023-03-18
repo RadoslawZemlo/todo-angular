@@ -1,7 +1,9 @@
 <mat-card>
   <div class="todo">
-    <mat-card-title class="todo__task">
-      {{ todo.task }}
+    <mat-card-title [appHover]="'translateX(0.5rem)'" class="todo__task">
+      <a [routerLink]="['/todos', todo.id]">
+        {{ todo.task }}
+      </a>
     </mat-card-title>
     <mat-card-subtitle class="todo__priority">
       {{ todo.priority | convertPriority }}
