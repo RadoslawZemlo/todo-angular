@@ -5,9 +5,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ConvertPriorityPipe } from './pipes/convert-priority/convert-priority.pipe';
 import { FilterPipe } from './pipes/filter/filter.pipe';
 import { SortPipe } from './pipes/sort/sort.pipe';
+import { CounterPipe } from './pipes/counter/counter.pipe';
 
 @NgModule({
-  declarations: [ConvertPriorityPipe, FilterPipe, SortPipe],
+  declarations: [ConvertPriorityPipe, FilterPipe, SortPipe, CounterPipe],
   imports: [CommonModule],
   exports: [
     MaterialModule,
@@ -15,6 +16,7 @@ import { SortPipe } from './pipes/sort/sort.pipe';
     ConvertPriorityPipe,
     FilterPipe,
     SortPipe,
+    CounterPipe,
   ],
 })
 export class SharedModule {}

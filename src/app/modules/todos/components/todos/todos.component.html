@@ -3,6 +3,19 @@
 <ng-container *ngIf="todos$ | async as todos">
   <div *ngIf="todos.length" class="todos-container">
     <div class="toolbar">
+      <div class="toolbar__count">
+        <p [ngSwitch]="toolbarForm.value.filter">
+          You have
+          <strong>
+            {{ todos | filter : toolbarForm.value.filter | counter }}
+          </strong>
+          <span *ngSwitchCase="'all'"> all</span>
+          <span *ngSwitchCase="'completed'"> completed</span>
+          <span *ngSwitchCase="'uncompleted'"> uncompleted</span>
+          todos
+        </p>
+      </div>
+
       <div class="toolbar__toggle">
         <mat-checkbox
           [checked]="(isAllCompleted$ | async)!"
