@@ -6,9 +6,16 @@ import { ConvertPriorityPipe } from './pipes/convert-priority/convert-priority.p
 import { FilterPipe } from './pipes/filter/filter.pipe';
 import { SortPipe } from './pipes/sort/sort.pipe';
 import { CounterPipe } from './pipes/counter/counter.pipe';
+import { HoverDirective } from './directives/hover/hover.directive';
 
 @NgModule({
-  declarations: [ConvertPriorityPipe, FilterPipe, SortPipe, CounterPipe],
+  declarations: [
+    ConvertPriorityPipe,
+    FilterPipe,
+    SortPipe,
+    CounterPipe,
+    HoverDirective,
+  ],
   imports: [CommonModule],
   exports: [
     MaterialModule,
@@ -17,6 +24,7 @@ import { CounterPipe } from './pipes/counter/counter.pipe';
     FilterPipe,
     SortPipe,
     CounterPipe,
+    HoverDirective,
   ],
 })
 export class SharedModule {}
