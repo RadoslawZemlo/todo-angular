@@ -12,8 +12,11 @@
         including
         <span
           >{{ todos | filter : "uncompleted" | counter }} ({{
-            todos | filter : "uncompleted" | counter
-          }})</span
+            todos
+              | filter : "uncompleted"
+              | counter
+              | percentage : todos.length
+          }})%</span
         >
         uncompleted
       </p>
@@ -21,7 +24,9 @@
         and
         <span>
           {{ todos | filter : "completed" | counter }}
-          ({{ todos | filter : "completed" | counter }})
+          ({{
+            todos | filter : "completed" | counter | percentage : todos.length
+          }}%)
         </span>
         completed
       </p>

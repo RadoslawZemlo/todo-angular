@@ -7,6 +7,7 @@ import { FilterPipe } from './pipes/filter/filter.pipe';
 import { SortPipe } from './pipes/sort/sort.pipe';
 import { CounterPipe } from './pipes/counter/counter.pipe';
 import { HoverDirective } from './directives/hover/hover.directive';
+import { PercentagePipe } from './pipes/percentage/percentage.pipe';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HoverDirective } from './directives/hover/hover.directive';
     FilterPipe,
     SortPipe,
     CounterPipe,
+    PercentagePipe,
     HoverDirective,
   ],
   imports: [CommonModule],
@@ -24,6 +26,7 @@ import { HoverDirective } from './directives/hover/hover.directive';
     FilterPipe,
     SortPipe,
     CounterPipe,
+    PercentagePipe,
     HoverDirective,
   ],
 })
