@@ -15,6 +15,11 @@ const routes: Routes = [
       import('@todos/todos.module').then((m) => m.TodosModule),
   },
   {
+    path: '**',
+    loadChildren: () =>
+      import('./modules/error/error.module').then((m) => m.ErrorModule),
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',
