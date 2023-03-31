@@ -55,7 +55,9 @@
       *ngFor="
         let todo of todos
           | filter : toolbarForm.value.filter
-          | sort : toolbarForm.value.sortBy
+          | sort : toolbarForm.value.sortBy;
+        index as index;
+        trackBy: todosTrackBy
       "
       [todo]="todo"
     >

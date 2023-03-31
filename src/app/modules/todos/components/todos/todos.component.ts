@@ -33,6 +33,10 @@ export class TodosComponent implements OnInit {
     });
   }
 
+  todosTrackBy(index: number, todo: Todo): number | undefined {
+    return todo.id;
+  }
+
   toggleAll(event: MatCheckboxChange): void {
     this.todosService.toggleAllTodos(event.source.checked);
   }
